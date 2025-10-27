@@ -1,4 +1,4 @@
-rador de Criptografia Interativo
+🪙 Explorador de Criptografia Interativo
 
 Este projeto é uma aplicação web acadêmica, desenvolvida com Vite + React + TSX, que demonstra de forma visual e interativa a evolução dos métodos de criptografia clássica, desde a Cifra de César até a Cifra de Substituição.
 
