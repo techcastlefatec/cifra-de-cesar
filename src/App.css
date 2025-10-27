@@ -1,10 +1,15 @@
 /* --- Configuração Geral e Fundo --- */
+:root {
+  /* Define o padding do 'app' para uso no 'content-area' */
+  --app-padding: 2rem;
+}
+
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding: 2rem;
+  padding: var(--app-padding);
   min-height: 100vh;
   background: linear-gradient(
     135deg,
@@ -15,75 +20,186 @@
   overflow-x: hidden;
 }
 
+/* --- NOVO: Navegação Principal --- */
+.app-nav {
+  display: flex;
+  flex-wrap: wrap; /* Quebra linha em telas pequenas */
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid #444;
+  margin-bottom: 2rem;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #c0c0c0;
+  background: linear-gradient(145deg, #4a4a4a, #303030);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+  color: #ffffff;
+  background: linear-gradient(145deg, #555, #3a3a3a);
+}
+
+.nav-button.active {
+  color: #3b2d16;
+  background: linear-gradient(145deg, #d9ae7b, #b08d57); /* Cor de bronze */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 220, 150, 0.5);
+}
+
+/* --- NOVO: Área de Conteúdo --- */
+.content-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- NOVO: Estilos da Página Inicial --- */
+.home-content {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid #444;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.home-content h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #d9ae7b;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #555;
+  padding-bottom: 0.5rem;
+}
+
+.home-content h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f0c99a;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.home-content p,
+.home-content li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #c0c0c0;
+}
+
+.home-content strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.home-content code {
+  background: #2a2a2a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 1rem;
+  color: #f0c99a;
+}
+
+.home-content .formula {
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: #2a2a2a;
+  border: 1px solid #555;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  color: #d9ae7b;
+}
+
+.home-content ul {
+  padding-left: 20px;
+}
+.home-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* --- (Estilos da Cifra - Nivel 1, 2, 3) --- */
+/* (Cole aqui todos os estilos do App.css anterior) */
+/* ... (header, cipher-wheel, outer-circle, etc.) ... */
 .app-header {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .app-header h1 {
   font-size: 2.5rem;
   font-weight: 300;
-  color: #d9ae7b; /* Tom de bronze */
+  color: #d9ae7b;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   margin: 0;
 }
-
 .explanation-text {
   font-size: 1.1rem;
   color: #c0c0c0;
   max-width: 600px;
 }
-
-/* --- Container principal da Cifra (Aumentado 40%) --- */
 .cipher-wheel {
   position: relative;
-  width: 560px; /* 400px * 1.4 */
-  height: 560px; /* 400px * 1.4 */
+  width: 560px;
+  height: 560px;
   margin-bottom: 1rem;
-  /* VARIÁVEIS PARA OS RAIOS USADOS NO JSX */
-  --outer-radius: 210px; /* Raio do círculo externo (420px / 2) */
-  --inner-radius: 126px; /* Raio do círculo interno (252px / 2) */
+  --outer-radius: 210px;
+  --inner-radius: 126px;
   transition: all 0.3s ease-out;
 }
-
-/* --- Estilo de Moeda de Bronze (Círculos) --- */
 .outer-circle {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 420px; /* 300px * 1.4 */
-  height: 420px; /* 300px * 1.4 */
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-    width 0.3s ease-out, height 0.3s ease-out; /* Transição suave */
-
-  /* Gradiente de bronze */
+    width 0.3s ease-out, height 0.3s ease-out;
   background: radial-gradient(
     circle at 30% 30%,
     #d9ae7b,
     #b08d57 60%,
     #805a2c 100%
   );
-  border: 3px solid #614620; /* Borda escura */
-
-  /* Sombra para efeito 3D metálico */
+  border: 3px solid #614620;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5),
-    /* Sombra externa */ inset 0 4px 8px rgba(255, 200, 100, 0.2),
-    /* Brilho interno */ inset 0 -4px 8px rgba(0, 0, 0, 0.6); /* Sombra interna */
+    inset 0 4px 8px rgba(255, 200, 100, 0.2),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.6);
 }
-
 .inner-circle {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 252px; /* 180px * 1.4 */
-  height: 252px; /* 180px * 1.4 */
+  width: 252px;
+  height: 252px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease-out;
-
-  /* Gradiente de bronze (inverso para contraste) */
   background: radial-gradient(
     circle at 70% 70%,
     #c09a67,
@@ -91,13 +207,9 @@
     #805a2c 100%
   );
   border: 2px solid #614620;
-
-  /* Sombra para parecer um relevo */
   box-shadow: 0 2px 4px rgba(255, 200, 100, 0.2),
-    /* Brilho externo */ inset 0 3px 6px rgba(0, 0, 0, 0.5); /* Sombra interna */
+    inset 0 3px 6px rgba(0, 0, 0, 0.5);
 }
-
-/* --- Imagem de César --- */
 .caesar-image {
   position: absolute;
   top: 50%;
@@ -112,27 +224,22 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
   transition: all 0.3s ease-out;
 }
-
-/* --- Letras nos Círculos --- */
 .letter {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -8px; /* Centraliza a letra */
-  margin-top: -12px; /* Centraliza a letra */
-  font-size: 16px; /* Aumentado */
+  margin-left: -8px;
+  margin-top: -12px;
+  font-size: 16px;
   font-weight: bold;
   transform-origin: 8px 12px;
-  color: #4a3719; /* Marrom escuro */
-  text-shadow: 1px 1px 1px rgba(255, 220, 150, 0.4); /* Leve brilho */
+  color: #4a3719;
+  text-shadow: 1px 1px 1px rgba(255, 220, 150, 0.4);
   transition: all 0.3s ease-out;
 }
-
 .letter.inner {
   color: #3b2d16;
 }
-
-/* --- Container de Controles (Abaixo da Cifra) --- */
 .controls-container {
   display: flex;
   flex-direction: column;
@@ -146,8 +253,6 @@
   width: 100%;
   max-width: 600px;
 }
-
-/* --- Grupos de Input e Output --- */
 .input-group,
 .output-group {
   display: flex;
@@ -155,7 +260,6 @@
   width: 100%;
   gap: 0.5rem;
 }
-
 .input-group label,
 .output-group label {
   display: flex;
@@ -163,11 +267,10 @@
   gap: 0.5rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #d9ae7b; /* Tom de bronze */
+  color: #d9ae7b;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-
 .text-input {
   width: 100%;
   padding: 12px;
@@ -177,12 +280,11 @@
   color: #f0f0f0;
   font-size: 1rem;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box; /* Garante que o padding não quebre o layout */
+  box-sizing: border-box;
 }
-
 .output-text {
   width: 100%;
-  min-height: 46px; /* Mesma altura do input */
+  min-height: 46px;
   padding: 12px;
   border-radius: 6px;
   border: 1px dashed #777;
@@ -195,17 +297,14 @@
   word-wrap: break-word;
   margin: 0;
 }
-
-/* --- Botões de Controle e Display da Chave --- */
 .controls {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   width: 100%;
-  flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
+  flex-wrap: wrap;
 }
-
 .shift-display {
   display: flex;
   align-items: center;
@@ -217,125 +316,122 @@
   border: 1px solid #555;
   font-size: 0.9rem;
 }
-
 .controls button {
   padding: 10px;
   border: none;
-  border-radius: 50%; /* Botões redondos */
+  border-radius: 50%;
   width: 44px;
   height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(145deg, #4a4a4a, #303030);
-  color: #d9ae7b; /* Ícone cor de bronze */
+  color: #d9ae7b;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4),
     inset 0 1px 1px rgba(255, 255, 255, 0.1);
   transition: all 0.2s ease;
 }
-
 .controls button:hover {
   background: linear-gradient(145deg, #555, #3a3a3a);
-  color: #f0c99a; /* Bronze mais claro */
+  color: #f0c99a;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5),
     inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
-
 .controls button:active {
   transform: scale(0.95);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4),
     inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* ================================================== */
-/* --- SEÇÃO RESPONSIVA --- */
-/* ================================================== */
-
+/* --- Seção Responsiva --- */
 @media (max-width: 600px) {
-  .app {
-    padding: 1rem; /* Diminui o padding geral */
+  :root {
+    --app-padding: 1rem;
   }
-
   .app-header h1 {
-    font-size: 2rem; /* Diminui o título */
+    font-size: 2rem;
   }
-
   .explanation-text {
-    font-size: 1rem; /* Diminui o texto explicativo */
+    font-size: 1rem;
   }
-
-  /* --- Redimensiona a Cifra --- */
+  /* Redimensiona Cifra */
   .cipher-wheel {
-    /* Novo tamanho da cifra, ex: 320px */
     width: 320px;
     height: 320px;
     margin-bottom: 1.5rem;
-
-    /* Novas variáveis de raio para o JSX */
-    --outer-radius: 120px; /* Raio do novo círculo de 240px */
-    --inner-radius: 72px; /* Raio do novo círculo de 144px */
+    --outer-radius: 120px;
+    --inner-radius: 72px;
   }
-
   .outer-circle {
-    /* Novo diâmetro (proporcional) */
     width: 240px;
     height: 240px;
   }
-
   .inner-circle {
-    /* Novo diâmetro (proporcional) */
     width: 144px;
     height: 144px;
   }
-
   .caesar-image {
-    /* Novo diâmetro (proporcional) */
     width: 100px;
     height: 100px;
   }
-
   .letter {
-    font-size: 14px; /* Diminui a fonte das letras */
+    font-size: 14px;
     margin-left: -7px;
     margin-top: -10px;
     transform-origin: 7px 10px;
   }
-
-  /* --- Ajusta os Controles --- */
+  /* Ajusta Controles */
   .controls-container {
     padding: 1rem;
     gap: 1rem;
   }
-
   .controls {
-    gap: 0.5rem; /* Diminui o gap entre os botões */
+    gap: 0.5rem;
   }
-
-  /* Faz o display da chave crescer para preencher o espaço */
-  /* e o coloca entre os botões */
   .shift-display {
     flex-grow: 1;
     text-align: center;
     justify-content: center;
-    order: 2; /* Ordem: Botão 1, Display 2, Botão 3 */
+    order: 2;
   }
-
   .controls button:first-of-type {
     order: 1;
   }
-
   .controls button:last-of-type {
     order: 3;
   }
-
   .text-input,
   .output-text {
     font-size: 1rem;
     padding: 10px;
   }
-
   .output-text {
     min-height: 42px;
+  }
+
+  /* NOVO: Ajustes Responsivos da Home/Nav */
+  .home-content {
+    padding: 1rem;
+  }
+  .home-content h2 {
+    font-size: 1.8rem;
+  }
+  .home-content h3 {
+    font-size: 1.3rem;
+  }
+  .home-content p,
+  .home-content li {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .home-content .formula {
+    font-size: 1rem;
+    padding: 0.75rem;
+    overflow-x: auto; /* Permite rolar fórmulas */
+  }
+  .nav-button {
+    font-size: 0.85rem;
+    padding: 8px 12px;
   }
 }
