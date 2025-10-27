@@ -6,16 +6,6 @@ Este projeto é uma aplicação web **acadêmica**, desenvolvida com **Vite + Re
 
 ---
 
-## 🚀 Demonstração  
-
-O coração do projeto é uma **“roda de cifra” interativa**, estilizada como uma **moeda de bronze**, que permite ao usuário visualizar o mapeamento entre o texto original e o texto cifrado.
-
-> ⚠️ **IMPORTANTE:**  
-> Substitua esta linha por um **GIF ou captura de tela** do seu projeto em ação.  
-> Grave sua tela com programas como **LICEcap** ou **GIPHY Capture**.
-
----
-
 ## 🎯 Conceitos Abordados  
 
 O projeto busca **educar** sobre a diferença entre **cifras de transposição** e **cifras de substituição**.
@@ -50,11 +40,11 @@ O projeto busca **educar** sobre a diferença entre **cifras de transposição**
 
 | Tecnologia | Logo |
 |-------------|------|
-| **React (Hooks)** — `useState`, `useMemo`, `useEffect` | <img src="https://raw.githubusercontent.com/github/explore/main/topics/react/react.png" alt="React" width="40"/> |
-| **Vite** — ambiente de desenvolvimento rápido e moderno | <img src="https://raw.githubusercontent.com/github/explore/main/topics/vite/vite.png" alt="Vite" width="40"/> |
-| **TypeScript (TSX)** — tipagem estática e segurança de código | <img src="https://raw.githubusercontent.com/github/explore/main/topics/typescript/typescript.png" alt="TypeScript" width="40"/> |
-| **Lucide React** — ícones modernos e leves | <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/lucide.svg" alt="Lucide" width="40"/> |
-| **CSS Puro** — estilização manual da moeda e responsividade | <img src="https://raw.githubusercontent.com/github/explore/main/topics/css/css.png" alt="CSS" width="40"/> |
+| **React (Hooks)** — `useState`, `useMemo`, `useEffect` | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40" alt="React"/> |
+| **Vite** — ambiente de desenvolvimento rápido e moderno | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" width="40" alt="Vite"/> |
+| **TypeScript (TSX)** — tipagem estática e segurança de código | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40" alt="TypeScript"/> |
+| **Lucide React** — ícones modernos e leves | <img src="https://lucide.dev/logo.svg" width="40" alt="Lucide"/> |
+| **CSS Puro** — estilização manual da moeda e responsividade | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" alt="CSS"/> |
 
 ---
 
