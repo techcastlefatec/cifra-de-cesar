@@ -73,7 +73,7 @@ O projeto busca **educar** sobre a diferença entre **cifras de transposição**
 
 ```bash
 # Clone o repositório
-git clone https://URL-DO-SEU-REPOSITORIO-AQUI.git
+git clone https://github.com/techcastlefatec/cifra-de-cesar
 
 # Entre na pasta
 cd nome-da-pasta-do-projeto
@@ -85,7 +85,7 @@ npm install
 npm run dev
 
 # Abra em seu navegador:  
-👉 [http://localhost:5173](http://localhost:5173)
+👉 http://localhost:5173 ou a porta que o Vite indicar
 
 ---
 
