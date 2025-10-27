@@ -1,109 +1,84 @@
-import React, { useState, useRef } from "react";
+import { useState } from "react";
+import {
+  MessageSquare,
+  KeyRound,
+  RotateCcw,
+  RotateCw,
+  HelpCircle,
+} from "lucide-react";
 import "../App.css";
 
+// Alfabeto base para a cifra
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!*-/|+=@#$%()?.,<>".split("");
 
 export default function NivelDois() {
-  const [shift, setShift] = useState(0); // em graus acumulados
+  // Estado para o deslocamento (shift) em graus acumulados
+  const [shift, setShift] = useState(0);
+  // Estado para o texto original
   const [text, setText] = useState("");
-  const [isDragging, setIsDragging] = useState(false);
-  const lastAngle = useRef(0);
-  const accumulatedShift = useRef(0);
-  const wheelRef = useRef<HTMLDivElement>(null);
 
-  const step = 360 / alphabet.length;
+  // Calcula o "passo" de cada letra em graus
+  const step = 360 / alphabet.length; // 13.84... graus
 
-  // Função para aplicar cifra de césar
-  const encrypt = (input: string, shift: number) => {
-    const offset = Math.round(shift / step);
+  // Função para aplicar a Cifra de César
+  const encrypt = (input: string, shiftInDegrees: number) => {
+    // Converte o deslocamento de graus para um índice (0-25)
+    // Usamos Math.round para "travar" na letra mais próxima
+    const offset = Math.round(shiftInDegrees / step);
+
     return input
       .toUpperCase()
       .split("")
       .map((char) => {
+        // Ignora caracteres que não são letras
         if (!/[A-Z]/.test(char)) return char;
+
         const idx = alphabet.indexOf(char);
-        return alphabet[(idx + offset + alphabet.length) % alphabet.length];
+        // Aplica o offset com módulo para "dar a volta" no alfabeto
+        const newIdx = (idx + offset + alphabet.length) % alphabet.length;
+        return alphabet[newIdx];
       })
       .join("");
   };
 
+  // Calcula o texto criptografado toda vez que o 'text' ou 'shift' mudar
   const encrypted = encrypt(text, shift);
 
-  // Calcula ângulo do mouse em relação ao centro
-  const getAngle = (e: MouseEvent | TouchEvent) => {
-    if (!wheelRef.current) return 0;
-    const rect = wheelRef.current.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-
-    const clientX = "touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
-    const clientY = "touches" in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
-
-    const dx = clientX - cx;
-    const dy = clientY - cy;
-
-    return Math.atan2(dy, dx) * (180 / Math.PI);
+  // Funções para os botões
+  const rotateClockwise = () => {
+    setShift((currentShift) => currentShift + step);
   };
 
-  const handleStart = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    setIsDragging(true);
-    lastAngle.current = getAngle(e.nativeEvent);
+  const rotateCounterClockwise = () => {
+    setShift((currentShift) => currentShift - step);
   };
-
-  const handleMove = (e: MouseEvent | TouchEvent) => {
-    if (!isDragging) return;
-    const currentAngle = getAngle(e);
-    const delta = currentAngle - lastAngle.current;
-    lastAngle.current = currentAngle;
-    setShift(accumulatedShift.current + delta);
-  };
-
-  const handleEnd = () => {
-    setIsDragging(false);
-    accumulatedShift.current = shift;
-  };
-
-  // Eventos globais quando arrastando
-  React.useEffect(() => {
-    if (isDragging) {
-      window.addEventListener("mousemove", handleMove);
-      window.addEventListener("touchmove", handleMove);
-      window.addEventListener("mouseup", handleEnd);
-      window.addEventListener("touchend", handleEnd);
-    } else {
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("touchmove", handleMove);
-      window.removeEventListener("mouseup", handleEnd);
-      window.removeEventListener("touchend", handleEnd);
-    }
-    return () => {
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("touchmove", handleMove);
-      window.removeEventListener("mouseup", handleEnd);
-      window.removeEventListener("touchend", handleEnd);
-    };
-  }, [isDragging]);
 
   return (
     <div className="app">
+      <header className="app-header">
+        <h1>Cifra de César Interativa</h1>
+        <p className="explanation-text">
+          Uma ferramenta visual para entender a Cifra de César. Gire o disco
+          externo para definir a chave de criptografia.
+        </p>
+      </header>
+
+      {/* Container principal da Cifra */}
       <div className="cipher-wheel">
-        {/* Círculo externo arrastável */}
+        {/* Círculo externo (giratório) */}
         <div
-          ref={wheelRef}
-          className={`outer-circle ${isDragging ? "dragging" : ""}`}
+          className="outer-circle"
           style={{ transform: `translate(-50%, -50%) rotate(${shift}deg)` }}
-          onMouseDown={handleStart}
-          onTouchStart={handleStart}
         >
           {alphabet.map((letter, i) => (
             <span
               key={i}
               className="letter"
               style={{
-                transform: `rotate(${step * i}deg) translate(150px) rotate(-${
+                // ATUALIZADO: Usando variável CSS
+                transform: `rotate(${
                   step * i
-                }deg)`,
+                }deg) translate(var(--outer-radius)) rotate(-${step * i}deg)`,
               }}
             >
               {letter}
@@ -111,43 +86,77 @@ export default function NivelDois() {
           ))}
         </div>
 
-        {/* Círculo interno fixo */}
+        {/* Círculo interno (fixo) */}
         <div className="inner-circle">
+          {/* Imagem de César */}
+          <img
+            src="/cesar.png"
+            alt="Júlio César"
+            className="caesar-image"
+          />
+
           {alphabet.map((letter, i) => (
             <span
               key={i}
               className="letter inner"
               style={{
-                transform: `rotate(${step * i}deg) translate(90px) rotate(-${
+                // ATUALIZADO: Usando variável CSS
+                transform: `rotate(${
                   step * i
-                }deg)`,
+                }deg) translate(var(--inner-radius)) rotate(-${step * i}deg)`,
               }}
             >
               {letter}
             </span>
           ))}
         </div>
-
-        {/* Input */}
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          className="input-text"
-          placeholder="Digite seu texto..."
-        />
-
-        {/* Botões de fallback */}
-        <div className="controls">
-          <button onClick={() => setShift((s) => s + step)}>↻ Girar Horário</button>
-          <button onClick={() => setShift((s) => s - step)}>↺ Girar Anti-horário</button>
-        </div>
       </div>
 
-      {/* Saída */}
-      <div className="output">
-        <h3>Texto Criptografado:</h3>
-        <p>{encrypted}</p>
+      {/* Container para todos os controles e saídas */}
+      <div className="controls-container">
+        {/* Input do Texto */}
+        <div className="input-group">
+          <label htmlFor="text-input">
+            <MessageSquare size={20} />
+            Texto Original
+          </label>
+          <input
+            id="text-input"
+            type="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            className="text-input"
+            placeholder="Digite sua mensagem..."
+          />
+        </div>
+
+        {/* Botões de Rotação */}
+        <div className="controls">
+          <button onClick={rotateCounterClockwise} title="Girar Anti-horário">
+            <RotateCcw size={18} />
+          </button>
+          <div className="shift-display">
+            <HelpCircle size={16} />
+            <span>
+              Chave Atual:{" "}
+              <strong>
+                {Math.round(shift / step) % alphabet.length}
+              </strong>
+            </span>
+          </div>
+          <button onClick={rotateClockwise} title="Girar Horário">
+            <RotateCw size={18} />
+          </button>
+        </div>
+
+        {/* Saída do Texto Criptografado */}
+        <div className="output-group">
+          <label>
+            <KeyRound size={20} />
+            Texto Cifrado
+          </label>
+          <p className="output-text">{encrypted || "..."}</p>
+        </div>
       </div>
     </div>
   );
