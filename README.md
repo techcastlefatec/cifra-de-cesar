@@ -1,4 +1,4 @@
-# 🪙 Explorador de Criptografia Interativo  
+# 🪙 Explorador de Criptografia Interativo com base na Cifra de César
 
 Este projeto é uma aplicação web **acadêmica**, desenvolvida com **Vite + React + TypeScript**, que demonstra de forma **visual e interativa** a evolução dos métodos de criptografia clássica — da **Cifra de César** à **Cifra de Substituição**.
 
@@ -83,3 +83,20 @@ npm install
 
 # Execute o servidor de desenvolvimento
 npm run dev
+
+# Abra em seu navegador:  
+👉 [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🎓 Autores e Contexto Acadêmico  
+
+📘 **Disciplina:** Matemática para Computação  
+👨‍🏫 **Professor:** Fabrício  
+🏫 **Instituição:** Fatec Jacareí  
+💻 **Curso:** Desenvolvimento de Software Multiplataforma  
+
+**Autores:**  
+- Bruno Berval Moreira de Godoi  
+- Suelen Souza Castro
+
