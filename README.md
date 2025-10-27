@@ -1,136 +1,95 @@
-🪙 Explorador de Criptografia Interativo
+# 🪙 Explorador de Criptografia Interativo  
 
-Este projeto é uma aplicação web acadêmica, desenvolvida com Vite + React + TSX, que demonstra de forma visual e interativa a evolução dos métodos de criptografia clássica, desde a Cifra de César até a Cifra de Substituição.
+Este projeto é uma aplicação web **acadêmica**, desenvolvida com **Vite + React + TypeScript**, que demonstra de forma **visual e interativa** a evolução dos métodos de criptografia clássica — da **Cifra de César** à **Cifra de Substituição**.
 
-Site ao Vivo: https://cifra-de-cesar-eta.vercel.app/
+🔗 **Site ao Vivo:** [https://cifra-de-cesar-eta.vercel.app/](https://cifra-de-cesar-eta.vercel.app/)
 
-🚀 Demonstração
+---
 
-O coração do projeto é uma "roda de cifra" interativa, estilizada como uma moeda de bronze, que permite ao usuário visualizar o mapeamento entre o texto original e o texto cifrado.
+## 🚀 Demonstração  
 
-$$\!\!\! IMPORTANTE \!\!\!$$
+O coração do projeto é uma **“roda de cifra” interativa**, estilizada como uma **moeda de bronze**, que permite ao usuário visualizar o mapeamento entre o texto original e o texto cifrado.
 
-Substitua esta linha por um GIF ou uma captura de tela do seu projeto em ação. Grave sua tela usando um programa como LICEcap, GIPHY Capture ou similar.
+> ⚠️ **IMPORTANTE:**  
+> Substitua esta linha por um **GIF ou captura de tela** do seu projeto em ação.  
+> Grave sua tela com programas como **LICEcap** ou **GIPHY Capture**.
 
-🎯 Conceitos Abordados
+---
 
-O objetivo principal é educar sobre a diferença fundamental entre cifras de transposição e substituição.
+## 🎯 Conceitos Abordados  
 
-Cifra de Transposição (Níveis 1 e 2): A Cifra de César. A ordem das letras é mantida, mas sua posição é "deslocada" por uma chave $k$.
+O projeto busca **educar** sobre a diferença entre **cifras de transposição** e **cifras de substituição**.
 
-Matemática: Aritmética Modular, onde $C = (P + k) \mod N$.
+### 🔸 Cifra de Transposição (Níveis 1 e 2)
+- Mantém a ordem das letras, mas desloca suas posições por uma chave `k`.  
+- **Matemática:**  
+  \( C = (P + k) \mod N \)  
+- **Exemplo:** Cifra de César.
 
-Cifra de Substituição (Nível 3): Cada letra é mapeada para uma letra diferente, quebrando a relação posicional.
+### 🔸 Cifra de Substituição (Nível 3)
+- Cada letra é mapeada para outra diferente, quebrando a relação posicional.  
+- **Matemática:**  
+  Permutação, onde a chave é um de \( N! \) alfabetos possíveis.
 
-Matemática: Permutação, onde a chave é um de $N!$ (N-fatorial) alfabetos embaralhados possíveis.
+---
 
-✨ Funcionalidades
+## ✨ Funcionalidades  
 
-Navegação por Níveis: O menu principal permite alternar entre os diferentes métodos de criptografia.
+- 🔁 **Navegação por Níveis** — alternância entre métodos de criptografia.  
+- 🧮 **Página Explicativa** — explica a matemática por trás das cifras.  
+- 🌀 **Visualização Interativa** — roda animada mostrando deslocamentos e substituições.  
+- ⚡ **Criptografia em Tempo Real** — o texto é cifrado conforme o usuário digita.  
+- 🎲 **Geração de Chave Aleatória (Nível 3)** — cria alfabetos permutados.  
+- 📜 **Gerenciamento de Chave** — exibe o mapeamento completo (`A → Q`, `B → X`, ...).  
+- 📋 **Copiar para Área de Transferência** — chave e texto cifrado.  
+- 🔓 **Descriptografia Manual** — permite reverter o texto cifrado usando uma chave válida.  
 
-Página Inicial Explicativa: Um texto detalhado explicando a matemática por trás de cada cifra.
+---
 
-Visualização Interativa: Uma "roda de cifra" que gira para demonstrar o deslocamento (Níveis 1 e 2) ou exibe o mapeamento aleatório (Nível 3).
+## 🛠️ Tecnologias Utilizadas  
 
-Criptografia em Tempo Real: O texto é cifrado instantaneamente à medida que o usuário digita.
+| Tecnologia | Logo |
+|-------------|------|
+| **React (Hooks)** — `useState`, `useMemo`, `useEffect` | <img src="https://raw.githubusercontent.com/github/explore/main/topics/react/react.png" alt="React" width="40"/> |
+| **Vite** — ambiente de desenvolvimento rápido e moderno | <img src="https://raw.githubusercontent.com/github/explore/main/topics/vite/vite.png" alt="Vite" width="40"/> |
+| **TypeScript (TSX)** — tipagem estática e segurança de código | <img src="https://raw.githubusercontent.com/github/explore/main/topics/typescript/typescript.png" alt="TypeScript" width="40"/> |
+| **Lucide React** — ícones modernos e leves | <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/lucide.svg" alt="Lucide" width="40"/> |
+| **CSS Puro** — estilização manual da moeda e responsividade | <img src="https://raw.githubusercontent.com/github/explore/main/topics/css/css.png" alt="CSS" width="40"/> |
 
-Geração de Chave (Nível 3): Um botão "Embaralhar" cria uma nova chave de substituição (um alfabeto permutado) de forma aleatória.
+---
 
-Gerenciamento de Chave (Nível 3):
+## ⚙️ Estrutura dos Níveis  
 
-Visualização do mapeamento completo (A -> Q, B -> X, ...).
+### 🔑 Nível 1 — Cifra de César Clássica  
+- **Alfabeto:** `A–Z`  
+- **Tamanho (N):** 26  
+- **Método:** Transposição simples  
+- **Fórmula:** \( C = (P + k) \mod 26 \)
 
-Exibição da chave como uma string única.
+### 🔑 Nível 2 — Cifra de César Estendida  
+- **Alfabeto:** `A–Z1234567890!*-/|+=@#$%()?.,<>`  
+- **Tamanho (N):** 53  
+- **Método:** Transposição ampliada  
+- **Fórmula:** \( C = (P + k) \mod 53 \)
 
-Funcionalidade de "Copiar para Área de Transferência" para a chave e para o texto cifrado.
+### 🔑 Nível 3 — Cifra de Substituição  
+- **Alfabeto:** mesmo do Nível 2  
+- **Método:** Substituição aleatória  
+- **Força:** \( 53! \) combinações possíveis (impraticável por força bruta)
 
-Descriptografia Manual (Nível 3): O usuário pode colar um texto cifrado e uma chave válida para reverter o processo.
+---
 
-🛠️ Tecnologias Utilizadas
+## 🔧 Como Executar Localmente  
 
-React (com Hooks): useState, useMemo e useEffect para gerenciar o estado da interface, os textos e as chaves. 
+```bash
+# Clone o repositório
+git clone https://URL-DO-SEU-REPOSITORIO-AQUI.git
 
-Vite: Ambiente de desenvolvimento frontend moderno e ultrarrápido. 
-
-TypeScript (TSX): Para adicionar tipagem estática e robustez ao código. 
-
-Lucide React: Biblioteca de ícones leve e moderna. 
-
-CSS: Estilização pura (sem frameworks) para criar o visual de "moeda de bronze" e garantir a responsividade. 
-
-⚙️ Estrutura dos Níveis
-
-O projeto é dividido em três níveis para demonstrar a progressão da complexidade:
-
-🔑 Nível 1: Cifra de César Clássica
-
-Alfabeto: ABCDEFGHIJKLMNOPQRSTUVWXYZ
-
-Tamanho (N): 26
-
-Método: Transposição (deslocamento com botões).
-
-Matemática: $C = (P + k) \mod 26$
-
-🔑 Nível 2: Cifra de César Estendida
-
-Alfabeto: ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!*-/|+=@#$%()?.,<>
-
-Tamanho (N): 53
-
-Método: Transposição (igual ao Nível 1, mas com um conjunto maior).
-
-Matemática: $C = (P + k) \mod 53$
-
-🔑 Nível 3: Cifra de Substituição
-
-Alfabeto: O mesmo alfabeto estendido do Nível 2.
-
-Tamanho (N): 53
-
-Método: Substituição (mapeamento 1-para-1 aleatório).
-
-Chave: O alfabeto inteiro embaralhado.
-
-Força: $53!$ (fatorial de 53) chaves possíveis, tornando a força bruta impossível.
-
-🔧 Como Executar Localmente
-
-Para rodar este projeto em sua máquina, siga os passos abaixo:
-
-Clone o repositório:
-
-git clone [https://URL-DO-SEU-REPOSITORIO-AQUI.git](https://URL-DO-SEU-REPOSITORIO-AQUI.git)
+# Entre na pasta
 cd nome-da-pasta-do-projeto
 
-
-
-Instale as dependências:
-
+# Instale as dependências
 npm install
 
-
-
-Execute o servidor de desenvolvimento:
-
+# Execute o servidor de desenvolvimento
 npm run dev
-
-
-
-Abra em seu navegador:
-
-Acesse http://localhost:5173 (ou a porta indicada pelo Vite).
-
-🎓 Autores e Contexto Acadêmico
-
-Este projeto foi desenvolvido como parte da avaliação da disciplina de Matemática para Computação, sob orientação do Prof. Fabrício.
-
-Instituição: Fatec Jacareí
-
-Curso: Desenvolvimento de Software Multiplataforma
-
-Autores:
-
-Bruno Berval Moreira de Godoi
-
-Suelen Souza Castro
