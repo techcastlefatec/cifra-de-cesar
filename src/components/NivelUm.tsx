@@ -56,10 +56,12 @@ export default function NivelUm() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Cifra de César Interativa</h1>
+        <h1>Nível 1: A Cifra de César Clássica</h1>
         <p className="explanation-text">
-          Uma ferramenta visual para entender a Cifra de César. Gire o disco
-          externo para definir a chave de criptografia.
+          Uma introdução à criptografia. Este método de{" "}
+          <strong>transposição</strong> usa um alfabeto simples (A-Z, N=26).
+          Gire o disco para definir a chave (k) e veja a aritmética modular em
+          ação: <code>C = (P + k) mod 26</code>.
         </p>
       </header>
 
