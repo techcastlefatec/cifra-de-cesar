@@ -24,7 +24,7 @@ const PaginaInicial = () => (
     <p>
       Bem-vindo a este projeto interativo sobre criptografia. O objetivo é
       demonstrar visualmente a evolução dos métodos de cifragem, da simples
-      transposição (Cifra de César) até a substituição polialfabética.
+      transposição (Cifra de César) até a substituição monoalfabética.
     </p>
 
     {/* ================================================================ */}
