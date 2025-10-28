@@ -1,3 +1,4 @@
+//src/components/NivelTres.css
 /* Transição de rotação para o embaralhamento */
 .cipher-wheel.nivel-tres .outer-circle {
   transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1),
@@ -9,7 +10,7 @@
   justify-content: center;
 }
 
-/* ATUALIZADO: Estilo do botão de Embaralhar */
+/* Estilo do botão de Embaralhar */
 .shuffle-button {
   padding: 10px 20px;
   border: none;
@@ -135,7 +136,7 @@
   color: #f0c99a;
 }
 
-/* NOVO: Estilo para as caixas de Cripto/Descripto */
+/* Estilo para as caixas de Cripto/Descripto */
 .crypto-box {
   background: rgba(0, 0, 0, 0.2); /* Fundo sutil */
   border: 1px solid #444;
@@ -161,9 +162,45 @@
   letter-spacing: 0.5px;
 }
 
-/* Ajustes responsivos para as novas caixas */
+/* ================================================== */
+/* --- SEÇÃO RESPONSIVA (Nível 3) --- */
+/* ================================================== */
+
 @media (max-width: 600px) {
+  /* Ajustes nas caixas de Cripto/Descripto */
   .crypto-box {
     padding: 1rem;
+  }
+  .crypto-box h3 {
+    font-size: 1.1rem; /* Diminui o título da caixa */
+  }
+
+  /* Ajustes no mapa da chave */
+  .key-display-box {
+    gap: 4px; /* Diminui o espaçamento entre os itens */
+    padding: 8px;
+  }
+  .key-map-item {
+    padding: 2px 4px; /* Diminui o padding interno do item */
+  }
+  .key-map-item span:first-child {
+    font-size: 0.7rem; /* Diminui a fonte 'A' */
+  }
+  .key-map-item span:last-child {
+    font-size: 0.85rem; /* Diminui a fonte 'Q' */
+  }
+  .key-map-item svg {
+    transform: scale(0.8); /* Diminui o ícone de seta */
+  }
+
+  /* Ajuste no botão de embaralhar */
+  .shuffle-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  /* Ajuste na string da chave */
+  .key-string.output-text {
+    font-size: 0.8rem;
   }
 }

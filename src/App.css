@@ -20,7 +20,7 @@
   overflow-x: hidden;
 }
 
-/* --- NOVO: Navegação Principal --- */
+/* --- Navegação Principal --- */
 .app-nav {
   display: flex;
   flex-wrap: wrap; /* Quebra linha em telas pequenas */
@@ -64,7 +64,7 @@
     inset 0 1px 2px rgba(255, 220, 150, 0.5);
 }
 
-/* --- NOVO: Área de Conteúdo --- */
+/* --- Área de Conteúdo --- */
 .content-area {
   width: 100%;
   display: flex;
@@ -72,7 +72,7 @@
   align-items: center;
 }
 
-/* --- NOVO: Estilos da Página Inicial --- */
+/* --- Estilos da Página Inicial --- */
 .home-content {
   width: 100%;
   max-width: 800px;
@@ -142,9 +142,34 @@
   margin-bottom: 0.5rem;
 }
 
+/* --- Estilos da Imagem e Contexto Histórico --- */
+.home-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.home-image {
+  width: 200px;
+  height: auto;
+  /* Sombra para destacar a estátua (especialmente sem fundo) */
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.5));
+}
+
+.text-map {
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  margin: 0.25rem 0;
+}
+.text-map span {
+  color: #888;
+  margin: 0 0.5rem;
+}
+
 /* --- (Estilos da Cifra - Nivel 1, 2, 3) --- */
-/* (Cole aqui todos os estilos do App.css anterior) */
-/* ... (header, cipher-wheel, outer-circle, etc.) ... */
 .app-header {
   text-align: center;
   margin-bottom: 2rem;
@@ -160,7 +185,18 @@
   font-size: 1.1rem;
   color: #c0c0c0;
   max-width: 600px;
+  /* Permite que o <code> seja estilizado dentro do <p> */
+  line-height: 1.6;
 }
+.explanation-text code {
+  background: #2a2a2a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 1rem;
+  color: #f0c99a;
+}
+
 .cipher-wheel {
   position: relative;
   width: 560px;
@@ -410,7 +446,7 @@
     min-height: 42px;
   }
 
-  /* NOVO: Ajustes Responsivos da Home/Nav */
+  /* Ajustes Responsivos da Home/Nav */
   .home-content {
     padding: 1rem;
   }
@@ -434,4 +470,10 @@
     font-size: 0.85rem;
     padding: 8px 12px;
   }
+
+  /* Ajuste Responsivo da Imagem */
+  .home-image {
+    width: 150px;
+  }
 }
+

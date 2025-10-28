@@ -20,25 +20,75 @@ type View = "inicio" | "nivel1" | "nivel2" | "nivel3";
  */
 const PaginaInicial = () => (
   <div className="home-content">
-    <h2>Explorando a Criptografia: Das Cifras Clássicas à Substituição</h2>
+    <h2>Explorando a Criptografia: Da Cifra Clássica à Substituição</h2>
     <p>
       Bem-vindo a este projeto interativo sobre criptografia. O objetivo é
       demonstrar visualmente a evolução dos métodos de cifragem, da simples
       transposição (Cifra de César) até a substituição polialfabética.
     </p>
 
-    <h3>Nível 1 & 2: A Matemática da Cifra de César (Transposição)</h3>
+    {/* ================================================================ */}
+    {/* ================== SEÇÃO DE CONTEXTO HISTÓRICO ================= */}
+    {/* ================================================================ */}
+    <h3>Contexto Histórico: A Cifra Original</h3>
     <p>
-      Os níveis 1 e 2 utilizam uma <strong>Cifra de Transposição</strong>,
-      popularmente conhecida como Cifra de César. A ideia é "deslocar"
-      (transpor) cada letra do alfabeto por um número fixo <code>k</code>, que é
-      a chave de criptografia.
+      A criptografia clássica começa com um dos nomes mais famosos da história:
+      Júlio César.
+    </p>
+
+    <div className="home-image-container">
+      <img
+        src="/estatua.png"
+        alt="Estátua de Júlio César"
+        className="home-image"
+      />
+    </div>
+
+    <p>
+      Júlio César, o lendário general e ditador romano, utilizava um método
+      simples, porém eficaz, para proteger suas comunicações militares. Esse
+      método, hoje conhecido como <strong>Cifra de César</strong>, é um dos
+      primeiros exemplos documentados de criptografia.
     </p>
     <p>
-      A operação matemática central é a <strong>aritmética modular</strong>. A
-      fórmula para criptografar cada caractere é:
+      A cifra era usada para enviar mensagens confidenciais aos seus generais.
+      Se um mensageiro fosse interceptado pelo inimigo, a mensagem pareceria um
+      amontoado de letras sem sentido, protegendo os planos de guerra romanos.
     </p>
-    {/* Esta fórmula em bloco está correta como texto simples estilizado */}
+    <p>
+      O funcionamento era direto: César simplesmente substituía cada letra da
+      sua mensagem por outra, avançando um número fixo de posições no alfabeto.
+      Historicamente, ele usava um deslocamento (ou chave) de 3. Assim:
+    </p>
+    <p className="text-map">
+      'A' <span>se tornava</span> 'D'
+    </p>
+    <p className="text-map">
+      'B' <span>se tornava</span> 'E'
+    </p>
+    <p className="text-map">
+      'C' <span>se tornava</span> 'F'
+    </p>
+    <p>...e assim por diante.</p>
+    <p>
+      Este projeto interativo explora a lógica matemática por trás dessa ideia
+      simples e como ela evoluiu para métodos muito mais seguros.
+    </p>
+    {/* ================================================================ */}
+    {/* ================================================================ */}
+
+    <h3>Nível 1 & 2: A Matemática da Transposição (Aritmética Modular)</h3>
+    <p>
+      Os Níveis 1 e 2 demonstram o funcionamento matemático da Cifra de César, um
+      método de <strong>Cifra de Transposição</strong>. Como vimos, a ideia é
+      "deslocar" (transpor) cada caractere do alfabeto por um número fixo{" "}
+      <code>k</code>, que é a chave de criptografia.
+    </p>
+    <p>
+      A operação matemática central que permite esse "giro" no alfabeto é a{" "}
+      <strong>aritmética modular</strong>. A fórmula para criptografar cada
+      caractere é:
+    </p>
     <code className="formula">C = (P + k) mod N</code>
     <p>
       Onde:
@@ -74,8 +124,9 @@ const PaginaInicial = () => (
     <p>
       O Nível 3 apresenta um salto em complexidade e segurança, usando uma
       <strong>Cifra de Substituição</strong>. Em vez de um simples deslocamento
-      numérico, criamos um mapeamento um-para-um onde cada caractere do alfabeto
-      original é mapeado para um caractere diferente em um alfabeto embaralhado.
+      numérico (transposição), criamos um mapeamento um-para-um onde cada
+      caractere do alfabeto original é mapeado para um caractere diferente em um
+      alfabeto embaralhado.
     </p>
     <p>
       A matemática por trás disso é a <strong>permutação</strong>. A "chave" não
@@ -109,13 +160,21 @@ const PaginaInicial = () => (
       {/* Ícone de seta usado aqui */}
       <ArrowRight
         size={16}
-        style={{ display: "inline-block", verticalAlign: "middle", margin: "0 4px" }}
+        style={{
+          display: "inline-block",
+          verticalAlign: "middle",
+          margin: "0 4px",
+        }}
       />
       'Q', a descriptografia usa o mapa 'Q'
       {/* Ícone de seta usado aqui */}
       <ArrowRight
         size={16}
-        style={{ display: "inline-block", verticalAlign: "middle", margin: "0 4px" }}
+        style={{
+          display: "inline-block",
+          verticalAlign: "middle",
+          margin: "0 4px",
+        }}
       />
       'A'.
     </p>

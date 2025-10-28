@@ -56,10 +56,12 @@ export default function NivelDois() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Cifra de César Interativa</h1>
+        <h1>Nível 2: Cifra de César Estendida</h1>
         <p className="explanation-text">
-          Uma ferramenta visual para entender a Cifra de César. Gire o disco
-          externo para definir a chave de criptografia.
+          O método é o mesmo, mas o desafio é maior. Agora, o alfabeto inclui
+          números e símbolos (N=53). A fórmula da{" "}
+          <strong>transposição</strong> ainda se aplica, mas o módulo mudou:{" "}
+          <code>C = (P + k) mod 53</code>.
         </p>
       </header>
 
