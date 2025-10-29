@@ -26,15 +26,18 @@ export default function NivelDois() {
     // Usamos Math.round para "travar" na letra mais próxima
     const offset = Math.round(shiftInDegrees / step);
 
-    return input
+     return input
       .toUpperCase()
       .split("")
       .map((char) => {
-        // Ignora caracteres que não são letras
-        if (!/[A-Z]/.test(char)) return char;
-
+       // Verifica se o caractere está no alfabeto estendido
         const idx = alphabet.indexOf(char);
-        // Aplica o offset com módulo para "dar a volta" no alfabeto
+
+        // Se o caractere não for encontrado (ex: espaço, caracteres especiais não mapeados),
+        // retorna ele inalterado.
+        if (idx === -1) return char;
+
+        // Aplica o deslocamento modular. O '+ alphabet.length' garante resultados positivos.
         const newIdx = (idx + offset + alphabet.length) % alphabet.length;
         return alphabet[newIdx];
       })
