@@ -36,7 +36,7 @@ export default function NivelDois() {
     const offset = Math.round(shiftInDegrees / step);
 
     return input
-      // .toUpperCase() // REMOVIDO: O alfabeto agora inclui símbolos
+      .toUpperCase() // <--- ADICIONADO DE VOLTA
       .split("")
       .map((char) => {
         const idx = alphabet.indexOf(char);
@@ -51,7 +51,7 @@ export default function NivelDois() {
   const decrypt = (input: string, key: number) => {
     const offset = key;
     return input
-      // .toUpperCase() // REMOVIDO
+      .toUpperCase() // <--- ADICIONADO DE VOLTA
       .split("")
       .map((char) => {
         const idx = alphabet.indexOf(char);
@@ -168,7 +168,7 @@ export default function NivelDois() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             className="text-input"
-            placeholder="Digite sua mensagem (símbolos são permitidos)..."
+            placeholder="Digite sua mensagem (letras minúsculas serão convertidas)..."
           />
         </div>
 
